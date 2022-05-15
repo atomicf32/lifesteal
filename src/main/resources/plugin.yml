@@ -1,0 +1,7 @@
+name: Lifesteal
+version: '${version}'
+main: lifesteal.lifesteal.Lifesteal
+api-version: 1.18
+authors: [ Deltazone, Nullfedora ]
+description: Lifesteal plugin for minecraft SMPs
+website: https://github.com/nullfedora/lifesteal
