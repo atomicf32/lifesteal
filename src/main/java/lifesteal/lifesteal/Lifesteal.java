@@ -1,12 +1,31 @@
 package lifesteal.lifesteal;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.NamespacedKey;
+import org.bukkit.Bukkit;
 
 public final class Lifesteal extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        ItemStack item = new ItemStack(Material.RED_DYE);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("§aHeart");
+        if ()
+        item.setItemMeta(meta);
+        NamespacedKey key = new NamespacedKey(this, "Heart");
+        ShapedRecipe recipe = new ShapedRecipe(key, item);
+        recipe.shape("D G D G N G D G D");
+        recipe.setIngredient('D', Material.DIAMOND_BLOCK);
+        recipe.setIngredient('G', Material.GOLD_BLOCK);
+        recipe.setIngredient('N', Material.NETHERITE_INGOT);
+        Bukkit.addRecipe(recipe);
+
 
     }
 
