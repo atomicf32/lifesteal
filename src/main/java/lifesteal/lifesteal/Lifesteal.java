@@ -8,6 +8,7 @@ import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
 
 public final class Lifesteal extends JavaPlugin {
 
@@ -16,7 +17,6 @@ public final class Lifesteal extends JavaPlugin {
         ItemStack item = new ItemStack(Material.RED_DYE);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName("§aHeart");
-        if ()
         item.setItemMeta(meta);
         NamespacedKey key = new NamespacedKey(this, "Heart");
         ShapedRecipe recipe = new ShapedRecipe(key, item);
@@ -25,6 +25,7 @@ public final class Lifesteal extends JavaPlugin {
         recipe.setIngredient('G', Material.GOLD_BLOCK);
         recipe.setIngredient('N', Material.NETHERITE_INGOT);
         Bukkit.addRecipe(recipe);
+        getServer().getPluginManager().registerEvents(new Lifestealgaining(), this);
 
 
     }
