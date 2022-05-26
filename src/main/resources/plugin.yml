@@ -5,3 +5,16 @@ api-version: 1.18
 authors: [ Deltazone, Nullfedora ]
 description: Lifesteal plugin for minecraft SMPs
 website: https://github.com/nullfedora/lifesteal
+commands:
+  lswithdraw:
+    description: Withdraws a heart
+    usage: /lswithdraw
+    permission: lifesteal.withdraw
+  lsget:
+    description: Gets the amount of HP someone has
+    usage: /lsget <player>
+    permission: lifesteal.get
+  lsset:
+    description: Sets the amount of HP someone has
+    usage: /lsset <player> <amount>
+    permission: lifesteal.set
