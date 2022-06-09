@@ -1,15 +1,19 @@
 name: Lifesteal
 version: '${version}'
-main: lifesteal.lifesteal.Lifesteal
-api-version: 1.18
+main: nullfedora.lifesteal.Lifesteal
+api-version: 1.19
 authors: [ Deltazone, Nullfedora ]
 description: Lifesteal plugin for minecraft SMPs
 website: https://github.com/nullfedora/lifesteal
 commands:
   lswithdraw:
     description: Withdraws a heart
-    usage: /lswithdraw
+    usage: /lswithdraw [amount]
     permission: lifesteal.withdraw
+  lsrevive:
+    description: Revives a player for a heart
+    usage: /lsrevive <player>
+    permission: lifesteal.revive
   lsget:
     description: Gets the amount of HP someone has
     usage: /lsget <player>

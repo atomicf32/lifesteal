@@ -1,0 +1,3 @@
+# Sets the maximum amount of hearts per player.
+# Minecraft restricts max hearts to 512
+max-hearts: 20
