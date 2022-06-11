@@ -1,6 +1,7 @@
 package nullfedora.lifesteal.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,7 +12,8 @@ public class CommandSet implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(args.length == 2) {
             if(Bukkit.getPlayer(args[0]) == null) {
-                return false;
+                sender.sendMessage(ChatColor.YELLOW + "Player is offline" + ChatColor.RESET);
+                return true;
             }
 
             try {

@@ -1,6 +1,7 @@
 package nullfedora.lifesteal.commands;
 
 import nullfedora.lifesteal.Lifesteal;
+import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +18,7 @@ public class CommandWithdraw implements CommandExecutor {
                     player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 2);
                     player.getInventory().addItem(Lifesteal.heartItem);
                 } else {
-                    sender.sendMessage("You do not have enough hearts to do that!");
+                    sender.sendMessage(ChatColor.YELLOW + "You do not have enough hearts to do that!" + ChatColor.RESET);
                 }
             } else if(args.length == 1) {
                 int hearts;
@@ -32,16 +33,16 @@ public class CommandWithdraw implements CommandExecutor {
                     ItemStack itemStack = new ItemStack(Lifesteal.heartItem);
                     itemStack.setAmount(hearts);
                     player.getInventory().addItem(itemStack);
+                } else {
+                    sender.sendMessage(ChatColor.YELLOW + "You do not have enough hearts to do that!" + ChatColor.RESET);
                 }
             } else {
                 return false;
             }
 
             player.updateInventory();
-
-            return true;
         }
 
-        return false;
+        return true;
     }
 }
