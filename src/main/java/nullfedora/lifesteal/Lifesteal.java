@@ -15,9 +15,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.logging.Level;
+
 public final class Lifesteal extends JavaPlugin implements Listener {
 
     public static BanData banData = new BanData();
+
     public static ItemStack heartItem;
 
     public static FileConfiguration config;
@@ -50,6 +53,7 @@ public final class Lifesteal extends JavaPlugin implements Listener {
 
         if(config.getInt("max-hearts") < 1) {
             config.set("max-hearts", 20);
+            this.getLogger().log(Level.WARNING, "Max hearts is invalid, max hearts has fallen back to 20.");
         }
     }
 
