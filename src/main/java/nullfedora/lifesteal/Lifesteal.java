@@ -27,18 +27,17 @@ public final class Lifesteal extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        ItemStack item = new ItemStack(Material.RED_DYE);
-        ItemMeta meta = item.getItemMeta();
+        heartItem = new ItemStack(Material.RED_DYE);
+        ItemMeta meta = heartItem.getItemMeta();
         meta.setDisplayName(ChatColor.DARK_RED + "Heart");
-        item.setItemMeta(meta);
+        heartItem.setItemMeta(meta);
         NamespacedKey key = new NamespacedKey(this, "Heart");
-        ShapedRecipe recipe = new ShapedRecipe(key, item);
+        ShapedRecipe recipe = new ShapedRecipe(key, heartItem);
         recipe.shape("DGD", "GNG", "DGD");
         recipe.setIngredient('D', Material.DIAMOND_BLOCK);
         recipe.setIngredient('G', Material.GOLD_BLOCK);
         recipe.setIngredient('N', Material.NETHERITE_INGOT);
         Bukkit.addRecipe(recipe);
-        heartItem = item;
 
         getServer().getPluginManager().registerEvents(this, this);
 
@@ -91,6 +90,7 @@ public final class Lifesteal extends JavaPlugin implements Listener {
         }
     }
 
+    @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         if(banData.hasUUID(event.getPlayer().getUniqueId())) {
             banData.removeUUID(event.getPlayer().getUniqueId());

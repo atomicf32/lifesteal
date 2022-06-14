@@ -64,10 +64,14 @@ public class CommandRevive implements CommandExecutor {
 
                 if(data.getUUID() != null) {
                     if(Lifesteal.banData.hasUUID(data.getUUID())) {
-                        Bukkit.getBanList(BanList.Type.NAME).pardon(data.getName());
-                        Lifesteal.banData.removeUUID(data.getUUID());
-                        player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 2);
-                        Bukkit.broadcastMessage(ChatColor.YELLOW + player.getName() + "has revived " + args[1] + "!" + ChatColor.RESET);
+                        if(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() > 2) {
+                            Bukkit.getBanList(BanList.Type.NAME).pardon(data.getName());
+                            Lifesteal.banData.removeUUID(data.getUUID());
+                            player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue() - 2);
+                            Bukkit.broadcastMessage(ChatColor.YELLOW + player.getName() + "has revived " + args[1] + "!" + ChatColor.RESET);
+                        } else {
+                            sender.sendMessage(ChatColor.YELLOW + "You do not have enough hearts to do that." + ChatColor.RESET);
+                        }
                     } else {
                         sender.sendMessage(ChatColor.YELLOW + "Cannot revive that player." + ChatColor.RESET);
                     }
